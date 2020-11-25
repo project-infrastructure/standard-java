@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'maven'
+    id 'maven-publish'
+}
+
+group 'com.laiyefei'
+version 'v1.0.0-SNAPSHOT'
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri(System.getProperty("REPO-MVN"))
+            credentials {
+                username = System.getProperty("USER")
+                password = System.getProperty("USER_TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories {
+    mavenCentral()
+}
