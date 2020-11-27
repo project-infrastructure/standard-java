@@ -33,7 +33,10 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Publish with Gradle
-      run: ./gradlew publish 
+      run: |
+        echo $USER
+        echo $USER_TOKEN
+        ./gradlew publish 
       env:
         USER: ${{ secrets.USER }}
         USER_TOKEN: ${{ secrets.USER_TOKEN }}
