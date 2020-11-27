@@ -13,8 +13,8 @@ publishing {
             name = "GitHubPackages"
             url = uri(System.getProperty("REPO-MVN"))
             credentials {
-                username = System.getProperty("USER")
-                password = System.getProperty("USER_TOKEN")
+                username = USER //System.getProperty("USER")
+                password = USER_TOKEN //System.getProperty("USER_TOKEN")
             }
         }
     }
