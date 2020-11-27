@@ -16,16 +16,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2 
-    - name: Restore gradle.properties
-      env:
-        USER: ${{ secrets.USER }}
-        USER_TOKEN: ${{ secrets.USER_TOKEN }}
-      shell: bash
-      run: |
-        mkdir -p ~/.gradle/
-        echo "::set-env name=GRADLE_USER_HOME::$HOME/.gradle"
-        echo ${USER} > ~/.gradle/gradle.properties
-        echo ${USER_TOKEN} > ~/.gradle/gradle.properties
+#     - name: Restore gradle.properties
+#       env:
+#         USER: ${{ secrets.USER }}
+#         USER_TOKEN: ${{ secrets.USER_TOKEN }}
+#       shell: bash
+#       run: |
+#         mkdir -p ~/.gradle/
+#         echo "::set-env name=GRADLE_USER_HOME::$HOME/.gradle"
+#         echo ${USER} > ~/.gradle/gradle.properties
+#         echo ${USER_TOKEN} > ~/.gradle/gradle.properties
     - name: Set up JDK 1.11
       uses: actions/setup-java@v1
       with:
@@ -34,3 +34,6 @@ jobs:
       run: chmod +x gradlew
     - name: Publish with Gradle
       run: ./gradlew publish 
+      env:
+        USER: ${{ secrets.USER }}
+        USER_TOKEN: ${{ secrets.USER_TOKEN }}
