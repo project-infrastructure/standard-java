@@ -4,7 +4,7 @@ plugins {
     id 'maven-publish'
 }
 
-group 'com.laiyefei'
+group 'com.laiyefei.project'
 version 'v1.0.0-SNAPSHOT'
 
 publishing {
